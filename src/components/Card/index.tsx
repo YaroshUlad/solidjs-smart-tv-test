@@ -4,8 +4,9 @@ import { Content } from "./../../types";
 import image from "./../../assets/image.jpg";
 
 interface CardProps {
-  active: boolean;
-  content: Content;
+  index: number;
+  active?: boolean;
+  content?: Content;
 }
 
 const Card = (props: CardProps) => {
@@ -13,13 +14,13 @@ const Card = (props: CardProps) => {
     <div class={styles.Card}>
       <div class={`${styles.Card__Content} ${props.active && styles.Active}`}>
         <Show when={props.content}>
-          <img src={props.content.image} />
+          <img src={props.content?.image} />
         </Show>
         <Show when={!props.content}>
           <img src={image} />
         </Show>
       </div>
-      <div class={styles.Card__Title}>Title</div>
+      <div class={styles.Card__Title}>{`Card ${props.index}`}</div>
     </div>
   );
 };

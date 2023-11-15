@@ -1,6 +1,22 @@
 .ScrollWrapper {
-  width: 100%;
   height: 100%;
+  width: 1920px;
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  overflow: hidden;
+  .Title {
+    font-size: 32px;
+    font-family: sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 20px 0;
+    color: #fff;
+  }
+}
+
+.ScrollContainer {
+  display: flex;
+  transition: 0.3s transform ease;
+  will-change: transform;
+  // transform: translateZ(0);
 }

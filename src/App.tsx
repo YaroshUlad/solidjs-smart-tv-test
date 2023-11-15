@@ -1,5 +1,7 @@
+import { For } from "solid-js";
 import "./App.scss";
 import Card from "./components/Card";
+import ScrollWrapper from "./components/ScrollWrapper";
 
 function App() {
   return (
@@ -13,16 +15,18 @@ function App() {
         <div
           style={{ display: "flex", "flex-direction": "column", gap: "60px" }}
         >
-          <div style={{ display: "flex", gap: "20px" }}>
-            <Card />
-            <Card />
-            <Card />
-          </div>
-          <div style={{ display: "flex", gap: "20px" }}>
-            <Card />
-            <Card />
-            <Card />
-          </div>
+          <ScrollWrapper
+            direction="row"
+            title="firstRow"
+            duration={600}
+            onSlideChange={() => {}}
+          >
+            <For each={Array(25).fill("2")}>
+              {(el, index) => {
+                return <Card active={index() === 1} index={index()} />;
+              }}
+            </For>
+          </ScrollWrapper>
         </div>
       </div>
     </div>
